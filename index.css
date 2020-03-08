@@ -11,7 +11,7 @@
 body{
     font-family: Whale_I_tried, cursive;
     background-color: #14C7E4;
-    background-image: url('/clip.svg');
+    background-image: url('./clip.svg');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -99,7 +99,7 @@ input{
 }
 
 .navbar-toggle{
-    background-image: url(/toggle.svg);
+    background-image: url(./toggle.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -149,7 +149,7 @@ input{
 #chat{
     height: 30vh;
     overflow-y: auto;
-    background-image: url('/Group\ 9.png');
+    background-image: url('./Group\ 9.png');
     background-color: #E1F7F9;
     border-radius: 20px;
     background-size: cover;
