@@ -21,7 +21,7 @@ var jokes = [
 },
 {
     "id": "5",
-    "firstResponse": "Voodoo ",
+    "firstResponse": "Voodoo",
     "secondResponse": "Voodoo you think you are, asking me so many questions?"
 },
 {
@@ -306,7 +306,7 @@ var jokes = [
 },
 {
     "id": "62",
-    "firstResponse": "Oink oink?",
+    "firstResponse": "Oink oink",
     "secondResponse": "Make up your mind—are you a pig, or an owl?"
 },
 {
@@ -356,7 +356,7 @@ var jokes = [
 },
 {
     "id": "72",
-    "firstResponse": "Kanga who?",
+    "firstResponse": "Kanga who",
     "secondResponse": "Actually, it’s kangaroo."
 },
 {
@@ -455,6 +455,7 @@ var response = 0
 var selectedMsg = {}
 var selectedErr = {}
 var sound = 1
+var askedQs = []
 
 
 function knock(){
@@ -463,7 +464,13 @@ function knock(){
         return Math.floor(Math.random() * Math.floor(max));
     }
     var selectedJokes = randKnock(jokes.length)
-    selectedMsg = jokes[selectedJokes]
+    
+    if(askedQs.includes(selectedJokes)){
+        selectedJokes = randKnock(jokes.length);
+    }else{
+        askedQs.push(selectedJokes);
+        selectedMsg = jokes[selectedJokes]
+    }
   
     //Intro Knock
     var node = document.createElement("div");
@@ -560,6 +567,8 @@ function adahresponds(){
     var newString = clientResponse1.toLowerCase() 
     var secondQs = selectedMsg.firstResponse + ' who';
     var secondQs2 = selectedMsg.firstResponse + ' who?'
+    newString = newString.replace(/\s+/g, " ");
+ 
     //Choose random error
     var randError = function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
@@ -568,7 +577,9 @@ function adahresponds(){
     var error = randError(firstErrors.length)
     selectedErr = firstErrors[error]
 
-    if(newString.startsWith("who") & response == 0){
+
+    //If it's the first response and it starts with 'who'
+    if(newString.startsWith("who") & response === 0){
         var node = document.createElement("div");
         var createBreak = document.createElement("br");
         node.className = 'adaBot'
@@ -577,16 +588,15 @@ function adahresponds(){
         chat.appendChild(node);
         chat.appendChild(createBreak);
         chat.scrollTop = chat.scrollHeight - chat.clientHeight;
-        if (sound == 1){
+        if (sound === 1){
             document.getElementById('audio').play();
         }
-       
         response = 1
         
                
     }
-    else if(clientResponse1.toLowerCase() == secondQs.toLowerCase() || 
-    clientResponse1.toLowerCase() == secondQs2.toLowerCase() & response == 1){
+    //If it's the second response and it starts with bot response and ends with who
+    else if(newString === secondQs.toLowerCase() || newString === secondQs2.toLowerCase()  & response === 1){
         var node = document.createElement('div');
         var createBreak = document.createElement("br");
         node.className = 'adaBot'
@@ -595,13 +605,14 @@ function adahresponds(){
         chat.appendChild(node);
         chat.appendChild(createBreak)
         chat.scrollTop = chat.scrollHeight - chat.clientHeight;
-        if (sound == 1){
+        if (sound === 1){
             document.getElementById('audio').play();
         }
         response = 0
-        setTimeout(knock, 1000) 
+        setTimeout(knock, 2000) 
     } 
-    else if(!newString.startsWith("who") & response == 0){
+    //If they don't ask who is at the dootr
+    else if(!newString.startsWith("who") & response === 0){
         var node = document.createElement("div");
         var createBreak = document.createElement("br");
         node.className = 'adaBot'
@@ -610,7 +621,7 @@ function adahresponds(){
         chat.appendChild(node);
         chat.appendChild(createBreak)
         chat.scrollTop = chat.scrollHeight - chat.clientHeight;
-        setTimeout(knock, 1000) 
+        setTimeout(knock, 2000) 
         if (sound == 1){
             document.getElementById('audio').play();
         }
@@ -627,7 +638,7 @@ function adahresponds(){
         chat.appendChild(node);
         chat.appendChild(createBreak);
         chat.scrollTop = chat.scrollHeight - chat.clientHeight;
-        setTimeout(knock, 1000) 
+        setTimeout(knock, 2000) 
         if (sound == 1){
             document.getElementById('audio').play();
         }
