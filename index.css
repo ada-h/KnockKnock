@@ -418,7 +418,7 @@ nav{
   }
 @media screen and (min-width: 600px) {
    #chat{
-    height: 40vh;  
+    height: 37vh;  
    }
    .sound{
        display: block
@@ -456,12 +456,12 @@ nav{
     }
     .loader {
         top: 50vh;
-        left: 50vw;
+        left: 45vw;
         
     }
     .loaderText{
         top: 55vh;
-        left: 50vw;
+        left: 45vw;
         font-size: 30px;
       
     }
