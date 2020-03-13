@@ -446,6 +446,7 @@ var firstErrors = [
 ]
 
 var clientInput = document.getElementById('clientInput');
+var loader = document.getElementsByClassName('preloader')
 var off = document.getElementById('off');
 var on = document.getElementById('on');
 var chat = document.getElementById('chat')
@@ -472,6 +473,8 @@ function knock(){
         selectedMsg = jokes[selectedJokes]
     }
   
+    //Remove loader
+    loader[0].style.display = 'none'
     //Intro Knock
     var node = document.createElement("div");
     var createBreak = document.createElement("br");

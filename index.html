@@ -10,7 +10,10 @@
        
     </head>
     <body onload="knock()">
-        
+        <div class='preloader'> 
+            <div class="loader"><div></div><div></div><div></div><div></div></div>
+            <div class='loaderText'> Loading</div>
+        </div>
         
         <div class="container-fluid ">
             <div class="container-fluid">
@@ -29,14 +32,14 @@
                         <li><a href="#" class="navContent">Get Help</a></li>
                         <li><a href="https://forms.gle/TCBxQdyZdDxRD7gEA" target = "_blank" class="navContent">Feedback</a></li>
                         <li><a href="#" class="navContent">About</a></li>
-                        <li class="navContent"> <div class='mobileSound'>
+                        <!-- <li class="navContent"> <div class='mobileSound'>
                             <span> Sound</span> 
 
                              <div class="btn-group soundBtns">
                                  <button type="button" class="btn btn-sm btn-primary toggleinactive" id="off" onclick="soundControl(0)">off</button>
                                  <button type="button" class="btn btn-sm btn-primary toggleBtn" id="on" onclick="soundControl(1)">on</button>
                              </div>
-                         </div></li>
+                         </div></li> -->
                     </ul>
                   </div>
                
@@ -48,7 +51,7 @@
                         <div class = "card">
                             <div class="introText">
                                 <p class='findOut'>
-                                    Who is Knocking? Find Out! <img src="./nerd.svg"/>
+                                    Who is Knocking? Find Out! <img style="margin-left: 10px" src="./nerd.svg"/>
                                 </p>
                                 <div class='sound'>
                                    <span> Sound</span> 
@@ -75,10 +78,11 @@
                            
                             <div class="replyPosition">
                                 <div class="replySection">
-                                    <input type='text' id='clientInput' onKeyPress="enterpressalert(event)" placeholder= 'Type Something here...' class='clientInput form-control'>
+                                    <input type='text' id='clientInput' onKeyPress="enterpressalert(event)" 
+                                    placeholder= 'Type Something here...' class='clientInput form-control'>
                                        
                                     </input>  
-                                    <button class='btn btn-md sendBtn' id="send" onclick="sendMsg()">Send</button>
+                                    <button class='btn btn-md sendBtn' id="send" onclick="sendMsg()">SEND</button>
                                 </div>  
                             </div>
                             
@@ -97,7 +101,7 @@
                 </div>
                 <div class ="col-lg-4 builtBy">
                     Built for you by <a target= '_blank' class='ourNames' href="http://adah.surge.sh/"> @Adah</a>, Designed by 
-                    <a href ="" class='ourNames'> @Chibuzor</a>
+                    <span class='ourNames'> @Chibuzor</span>
                 </div>
                 <div class ="col-lg-4 version">
                     2020 knockknock.com

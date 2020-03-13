@@ -72,20 +72,20 @@ input{
     font-size: 30px;
     color: #D4FCFF;
     text-shadow:
-    -1px -1px 0 #0E7B82,
-    1px -1px 0 #0E7B82,
-    -1px 1px 0 #0E7B82,
-    1px 1px 0 #0E7B82;
+    -2px -1px 0 #0E7B82,
+    2px -1px 0 #0E7B82,
+    -2px 1px 0 #0E7B82,
+    2px 1px 0 #0E7B82;
 }
 
 .secondKnock{
     font-size: 30px;
     color: #FFD93B;
     text-shadow:
-    -1px -1px 0 #0E7B82,
-    1px -1px 0 #0E7B82,
-    -1px 1px 0 #0E7B82,
-    1px 1px 0 #0E7B82;
+    -2px -1px 0 #0E7B82,
+    2px -1px 0 #0E7B82,
+    -2px 1px 0 #0E7B82,
+    2px 1px 0 #0E7B82;
 
 }
 
@@ -107,10 +107,15 @@ input{
     color: #ffffff !important;
     font-size: 15px;
     text-shadow:
-    -1px -1px 0 #0E7B82,
-    1px -1px 0 #0E7B82,
-    -1px 1px 0 #0E7B82,
-    1px 1px 0 #0E7B82;
+    -2px -1px 0 #0E7B82,
+    2px -1px 0 #0E7B82,
+    -2px 1px 0 #0E7B82,
+    2px 1px 0 #0E7B82;
+
+}
+.nav>li>a:focus, .nav>li>a:hover{
+    background-color: transparent !important;
+    color: #F4C534 !important;
 }
 
 .replySection{
@@ -118,13 +123,16 @@ input{
     justify-content: space-around;
 }
 .clientInput{
-    height: 40px !important;
+    height: 50px !important;
+    border: 2px solid #16AAC2 !important;
+    opacity: .5;
     border-radius: 100px;
     background-color: #E1F7F9;
 }
 .clientInput:focus{
-    border: 1px solid #16AAC2 !important;
+    border: 2px solid #16AAC2 !important;
     box-shadow: none;
+    opacity: 1;
 }
 .sendBtn{
     font-family: 'Nunito', sans-serif;
@@ -133,6 +141,7 @@ input{
     background-color: #16AAC2;
     color: #C5F3FB !important;
     font-size: 16px;
+    height: 50px;
 }
 .btn:hover{
     color: #16AAC2 !important;
@@ -146,6 +155,88 @@ input{
     padding: 20px;
 
 }
+.preloader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #15CEED;
+    z-index: 1000;
+}
+
+
+.loader {
+    position: absolute;
+    background-color: #14C7E4;
+    top: 40vh;
+    left: 38vw;
+    
+}
+
+.loaderText{
+    color: #D4FCFF;
+    position: absolute;
+    top: 47vh;
+    left: 37vw;
+    font-size: 30px;
+    margin-top: 0px
+    
+}
+
+  .loader div {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #F4C534;
+    border:2px solid #0E7B82;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .loader div:nth-child(1) {
+    left: 8px;
+    background:#D4FCFF;
+    background: #F5F5F5;
+    animation: loader1 1s infinite;
+  }
+  .loader div:nth-child(2) {
+    left: 8px;
+    animation: loader2 1s infinite;
+  }
+  .loader div:nth-child(3) {
+    background:#D4FCFF;
+    background: #F5F5F5;
+    left: 32px;
+    animation: loader2 1s infinite;
+  }
+  .loader div:nth-child(4) {
+    left: 56px;
+    animation: loader3 1s infinite;
+  }
+  @keyframes loader1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes loader3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes loader2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
 #chat{
     height: 55vh;
     overflow-y: auto;
@@ -276,13 +367,15 @@ nav{
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #F4C534;
-    border:2px solid #0E7B82;
+    background: #F5F5F5;
+    /* background: #F4C534;
+    border:2px solid #0E7B82; */
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
   .lds-ellipsis div:nth-child(1) {
     left: 8px;
-    background:#D4FCFF;
+    /* background:#D4FCFF; */
+    background: #F5F5F5;
     animation: lds-ellipsis1 1s infinite;
   }
   .lds-ellipsis div:nth-child(2) {
@@ -290,7 +383,8 @@ nav{
     animation: lds-ellipsis2 1s infinite;
   }
   .lds-ellipsis div:nth-child(3) {
-    background:#D4FCFF;
+    /* background:#D4FCFF; */
+    background: #F5F5F5;
     left: 32px;
     animation: lds-ellipsis2 1s infinite;
   }
@@ -324,7 +418,7 @@ nav{
   }
 @media screen and (min-width: 600px) {
    #chat{
-    height: 35vh;  
+    height: 40vh;  
    }
    .sound{
        display: block
@@ -352,13 +446,27 @@ nav{
         justify-content: space-between;
     }
     .cardCover{
-        margin-top: 30%
+        margin-top: 20%
     }
     .card{
         height: 55vh;
     }
     .mobileSound{
         display: none
+    }
+    .loader {
+        top: 50vh;
+        left: 50vw;
+        
+    }
+    .loaderText{
+        top: 55vh;
+        left: 50vw;
+        font-size: 30px;
+      
+    }
+    .findOut{
+       font-size: 20px;
     }
 }
 
